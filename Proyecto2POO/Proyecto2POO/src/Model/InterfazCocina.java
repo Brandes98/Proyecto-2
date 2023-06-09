@@ -8,7 +8,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author JOCTAN ESQUIVEL
+ * @author Brandon Calderon y Keren Fuentes
  */
 public class InterfazCocina extends javax.swing.JFrame {
 

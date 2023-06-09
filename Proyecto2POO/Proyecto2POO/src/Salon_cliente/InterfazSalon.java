@@ -19,12 +19,13 @@ import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
 public class InterfazSalon extends javax.swing.JFrame {
      private ArrayList<Pedido> pedidos = new ArrayList<>();
     Pedido pedido1 = new Pedido(1);
-    Pedido pedido2= new Pedido(2);
-    Pedido pedido3= new Pedido(3);
-    Pedido pedido4= new Pedido(4);
+    Pedido pedido2 = new Pedido(2);
+    Pedido pedido3 = new Pedido(3);
+    Pedido pedido4 = new Pedido(4);
     Socket client;
      ObjectOutputStream output;
      FabricaHamburguesa crear=new FabricaHamburguesa();
@@ -109,7 +110,7 @@ public class InterfazSalon extends javax.swing.JFrame {
     {
         for(int i=0;i<pedidos.size();i++)
         {
-           mesaEstado[ pedidos.get(i).getNumeroPedido()]=false;
+           mesaEstado[ pedidos.get(i).getNumeroPedido()-1]=false;
         }
     }
     /**

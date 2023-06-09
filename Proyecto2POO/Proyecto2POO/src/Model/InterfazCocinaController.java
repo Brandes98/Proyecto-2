@@ -160,12 +160,31 @@ public class InterfazCocinaController implements ActionListener, KeyListener {
            // updateNumbers();
         }
     }
-    
+    private boolean existeOrden(int num)
+    {
+         DefaultTableModel model = (DefaultTableModel) cocina.getTblOrdenes().getModel();
+        int pedidoNum;
+        Object valor; 
+        int limite = model.getRowCount();
+        int contador = 0;
+        while (contador<limite){
+            valor = model.getValueAt(contador, 0); 
+            pedidoNum = Integer.parseInt(valor+"");
+            if(pedidoNum==num){
+              return true;
+            }else{
+                contador+=1;
+            }
+
+           // updateNumbers();
+        }
+       return false; 
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
         if(checkNumbers(cocina.getTxfNumeroOrden().getText())){
             int num = Integer.parseInt(cocina.getTxfNumeroOrden().getText());
-            if (num >= 1 && num <= cocina.getTblOrdenes().getRowCount()){
+            if (num >= 1 && existeOrden(num)){
                 //ArrayList<Integer> toDelete = new ArrayList<>();
                 eliminarPedido(num);
                 eliminarFilas(num);

@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 import java.io.Serializable;
 /**
  *
- * @author JOCTAN ESQUIVEL
+ * @author Keren fuentes y Brandon Calderon
  */
 public class Hamburguesa implements Serializable {
     private String nombre = "Basica";
