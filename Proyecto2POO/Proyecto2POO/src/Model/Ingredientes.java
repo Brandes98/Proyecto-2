@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.io.Serializable;
 public class Ingredientes implements Serializable{
     private static  HashMap<String, Integer> ingredientes = new HashMap<>();
-
+     private static Ingredientes instance = null;
     static{
         ingredientes.put("Pan de hamburguesa", 500);
         ingredientes.put("Carne de res molida", 1000);
@@ -56,7 +56,12 @@ public class Ingredientes implements Serializable{
     public static ArrayList<String> getNombresIngredientes() {
         return new ArrayList<>(ingredientes.keySet());
     }
-    
+    public static Ingredientes getInstance() {
+        if (instance == null) {
+            instance = new Ingredientes();
+        }
+        return instance;
+    }
     public static boolean existeIngrediente(String ingrediente){
         return ingredientes.containsKey(ingrediente);
     }

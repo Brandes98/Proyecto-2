@@ -8,6 +8,7 @@ package Salon_cliente;
  *
  * @author brand
  */
+import Model.Adapter;
 import Model.FabricaHamburguesa;
 import Model.Pedido;
 import Model.Hamburguesa;
@@ -33,6 +34,7 @@ public class InterfazSalon extends javax.swing.JFrame {
      boolean[] mesaEstado={true,true,true,true};
      ServidorSalon servidor;
      Thread hilo;
+     Adapter adaptador= new Adapter();
     /**
      * Creates new form InterfazSalon
      */
@@ -235,13 +237,15 @@ public class InterfazSalon extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         agregarAlPedido();
-         inhabilitaMesas();
+        activar();
         System.out.println("si llama a la funcion");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-       activar();
+        adaptador.imprimirloTodo(pedidos);
+         inhabilitaMesas();
+       
         conectar();
         limpiar();
     }//GEN-LAST:event_jButton2ActionPerformed

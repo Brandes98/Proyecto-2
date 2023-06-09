@@ -31,7 +31,7 @@ public class Hamburguesa implements Serializable {
     
 
 
-    public boolean agregarIngrediente(String ingrediente){
+    /*public boolean agregarIngrediente(String ingrediente){
         if (Ingredientes.existeIngrediente(ingrediente)){
             int precioIngrediente = Ingredientes.getPrecioBase(ingrediente);
             this.ingredientes.put(ingrediente, precioIngrediente);
@@ -42,6 +42,20 @@ public class Hamburguesa implements Serializable {
             }
             return true;
         }else{
+            return false;
+        }
+    }*/
+    public boolean agregarIngrediente(String ingrediente) {
+        if (Ingredientes.getInstance().existeIngrediente(ingrediente)) {
+            int precioIngrediente = Ingredientes.getInstance().getPrecioBase(ingrediente);
+            this.ingredientes.put(ingrediente, precioIngrediente);
+            precioBase += precioIngrediente;
+            precioFinal += precioIngrediente;
+            if (this.nombre.contains("Adicional")) {
+                this.precioAdicionales += precioIngrediente;
+            }
+            return true;
+        } else {
             return false;
         }
     }
