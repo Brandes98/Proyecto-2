@@ -23,8 +23,7 @@ public class Proyecto2POO {
      */
     public static void main(String[] args) {
         
-        InterfazSalon salon = new InterfazSalon();
-        salon.setVisible(true);
+        
         InterfazCocinaController controlador = new InterfazCocinaController();
         
         

@@ -11,6 +11,7 @@ package Salon_cliente;
 import Model.FabricaHamburguesa;
 import Model.Pedido;
 import Model.Hamburguesa;
+import Model.ServidorCocina;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -30,11 +31,18 @@ public class InterfazSalon extends javax.swing.JFrame {
      ObjectOutputStream output;
      FabricaHamburguesa crear=new FabricaHamburguesa();
      boolean[] mesaEstado={true,true,true,true};
+     ServidorSalon servidor;
+     Thread hilo;
     /**
      * Creates new form InterfazSalon
      */
     public InterfazSalon() {
+         
         initComponents();
+       // while(true){
+           
+           
+       // }
     }
     public void agregarAlPedido()
  {
@@ -105,6 +113,21 @@ public class InterfazSalon extends javax.swing.JFrame {
         catch(Exception e){
             System.out.println(e);
         }
+    }
+    void activar()
+    {
+       for(int i=0;i<pedidos.size();i++)
+        {
+           mesaEstado[ pedidos.get(i).getNumeroPedido()-1]=true;
+        }
+    }
+    void limpiar()
+    {
+        pedido1.getHamburguesas().clear();
+        pedido2.getHamburguesas().clear();
+        pedido3.getHamburguesas().clear();
+        pedido4.getHamburguesas().clear();
+        pedidos.clear();
     }
     void inhabilitaMesas()
     {
@@ -212,13 +235,15 @@ public class InterfazSalon extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         agregarAlPedido();
+         inhabilitaMesas();
         System.out.println("si llama a la funcion");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        inhabilitaMesas();
+       activar();
         conectar();
+        limpiar();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void ExtrasComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExtrasComboActionPerformed

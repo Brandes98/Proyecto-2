@@ -36,11 +36,13 @@ public class InterfazCocinaController implements ActionListener, KeyListener {
          servidor=new ServidorCocina();
         hilo=new Thread(servidor);
         hilo.start();
-        System.out.println("Si entra a ciclo");
+        System.out.println("");
+         imprimirPedidos(servidor.pedidos);
          while(true){
-             System.out.println("Si entra a ciclo ture");
+              System.out.println("");
+             imprimirPedidos(servidor.pedidos);
              if(servidor.pedidos.size()>0){
-                  System.out.println("Si entra a ciclo ture");
+                  System.out.println("Si entra al siguiente ciclo ture");
              imprimirPedidos(servidor.pedidos); System.out.println("Si sale del ciclo");
              pintarPedido(servidor.pedidos);
              servidor.pedidos.clear();
@@ -188,6 +190,7 @@ public class InterfazCocinaController implements ActionListener, KeyListener {
                 //ArrayList<Integer> toDelete = new ArrayList<>();
                 eliminarPedido(num);
                 eliminarFilas(num);
+               // servidor.abrirConexion(num);
             }else{
                 JOptionPane.showMessageDialog(cocina, "El numero de orden no existe", "Error", 0);
             }

@@ -15,7 +15,8 @@ public class Cliente_Servidor_Salon {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+        InterfazSalon salon = new InterfazSalon();
+        salon.setVisible(true);
     }
     
 }
