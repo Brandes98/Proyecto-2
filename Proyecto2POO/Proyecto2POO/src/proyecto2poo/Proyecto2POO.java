@@ -1,12 +1,14 @@
 
 package proyecto2poo;
-import Controller.InterfazCocinaController;
+import Model.InterfazCocinaController;
 import Model.FabricaHamburguesa;
 import Model.Hamburguesa;
 import Model.HamburguesaUSA;
 import Model.Ingredientes;
 import Model.Pedido;
-import View.InterfazCocina;
+import Model.InterfazCocina;
+import Model.ServidorCocina;
+import Salon_cliente.InterfazSalon;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -15,12 +17,19 @@ import java.util.HashMap;
  * @author JOCTAN ESQUIVEL
  */
 public class Proyecto2POO {
-
+     
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ArrayList<Pedido> pedidos = new ArrayList<>();
+        
+        InterfazSalon salon = new InterfazSalon();
+        salon.setVisible(true);
+        InterfazCocinaController controlador = new InterfazCocinaController();
+        
+        
+       
+       /* ArrayList<Pedido> pedidos = new ArrayList<>();
         ArrayList<Hamburguesa> hambur = new ArrayList<>();
         
         hambur.add(FabricaHamburguesa.crearHamburguesa(0));
@@ -68,7 +77,7 @@ public class Proyecto2POO {
         
         
 //        InterfazCocina a = new InterfazCocina();
-//        a.setVisible(true);
+//        a.setVisible(true);*/
     }
     
 }

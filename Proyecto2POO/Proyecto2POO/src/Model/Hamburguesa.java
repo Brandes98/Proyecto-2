@@ -5,12 +5,12 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
-
+import java.io.Serializable;
 /**
  *
  * @author JOCTAN ESQUIVEL
  */
-public class Hamburguesa {
+public class Hamburguesa implements Serializable {
     private String nombre = "Basica";
     private HashMap<String, Integer> ingredientes = new HashMap<>();
     private int precioBase = 0;

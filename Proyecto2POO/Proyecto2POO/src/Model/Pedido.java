@@ -1,12 +1,12 @@
 package Model;
 
 import java.util.ArrayList;
-
+import java.io.Serializable;
 /**
  *
- * @author JOCTAN ESQUIVEL
+ * author Brandon Calderon y Keren Fuentes
  */
-public class Pedido {
+public class Pedido implements Serializable {
     private int numeroPedido;
     private ArrayList<Hamburguesa> hamburguesas;
 
@@ -39,7 +39,10 @@ public class Pedido {
     public void setHamburguesas(ArrayList<Hamburguesa> hamburguesas) {
         this.hamburguesas = hamburguesas;
     }
-
+    public int tamano()
+    {
+        return hamburguesas.size();
+    }
 
 
 

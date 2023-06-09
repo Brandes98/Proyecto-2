@@ -3,8 +3,8 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
-public class Ingredientes {
+import java.io.Serializable;
+public class Ingredientes implements Serializable{
     private static  HashMap<String, Integer> ingredientes = new HashMap<>();
 
     static{
